@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distance Calculator</title>
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <div class="container">
+        {% if Calculate: %}
+            <h1>Distance Calculator</h1>
+            <h2>The distance between two places is {{ Distance }}km.</h2>
+            <h2>It will take approximately {{Duration}} to reach by OLA Cars.</h2>
+        {%else:%}
+            <h1>Distance Calculator</h1>
+        {% endif %}
+        <form id="distanceForm" action="{{ url_for('home') }}" method="post">
+            <div class="input-group">
+                <label for="place1">ORIGIN:</label>
+                <input type="text" id="place1" name="place1" required>
+            </div>
+            <div class="input-group">
+                <label for="place2">DESTINATION:</label>
+                <input type="text" id="place2" name="place2" required>
+            </div>
+            <button type="submit">Calculate Distance</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+</body>
+</html>
+
